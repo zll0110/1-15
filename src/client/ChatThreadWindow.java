@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.xml.transform.Result;
 
 /**
- * èŠå¤©çº¿ç¨‹
+ * ÁÄÌìÏß³Ì
  */
 public class ChatThreadWindow {
     private String name;
@@ -28,19 +28,19 @@ public class ChatThreadWindow {
     private JFrame f;
     JTextArea ta;
     private JTextField tf;
-    private static int total;// åœ¨çº¿äººæ•°ç»Ÿè®¡
+    private static int total;// ÔÚÏßÈËÊıÍ³¼Æ
     DatagramSocket ds;
 
     public  ChatThreadWindow (String name,DatagramSocket ds){
         /*
-         * è®¾ç½®èŠå¤©å®¤çª—å£ç•Œé¢
+         * ÉèÖÃÁÄÌìÊÒ´°¿Ú½çÃæ
          */
         this.ds=ds;
         this.name=name;
         f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setSize(600, 400);
-        f.setTitle("èŠå¤©å®¤" + " - " + name + "     å½“å‰åœ¨çº¿äººæ•°:" + ++total);
+        f.setTitle("ÁÄÌìÊÒ" + " - " + name + "     µ±Ç°ÔÚÏßÈËÊı:" + ++total);
         f.setLocation(300, 200);
         ta = new JTextArea();
         JScrollPane sp = new JScrollPane(ta);
@@ -48,7 +48,7 @@ public class ChatThreadWindow {
         tf = new JTextField();
         cb = new JComboBox();
         cb.addItem("All");
-        JButton jb = new JButton("ç§èŠçª—å£");
+        JButton jb = new JButton("Ë½ÁÄ´°¿Ú");
         JPanel pl = new JPanel(new BorderLayout());
         pl.add(cb);
         pl.add(jb, BorderLayout.WEST);
@@ -72,7 +72,7 @@ public class ChatThreadWindow {
        Connection conn=null;
         try {
             conn = DriverManager.getConnection(url, username_db, password_db);
-            String sql = "SELECT username,ip FROM users WHERE status='online'";
+            String sql = "SELECT username,ip,port FROM users WHERE status='online'";
             pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -87,7 +87,7 @@ public class ChatThreadWindow {
                     ipB[i] = (byte) Integer.parseInt(ips[i]);
                 }
                 if (!username.equals(name)) {
-                    String message = name + "è¿›å…¥äº†èŠå¤©å®¤";
+                    String message = name + "½øÈëÁËÁÄÌìÊÒ";
                     byte[] m = message.getBytes();
                     DatagramPacket dp = new DatagramPacket(m, m.length);
                     dp.setAddress(InetAddress.getByAddress(ipB));

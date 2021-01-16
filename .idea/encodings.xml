@@ -4,6 +4,7 @@
     <file url="file://$PROJECT_DIR$/src/chuan/Client.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/chuan/Clientt.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/chuan/SocketDemo.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/client/ChatThreadWindow.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/client/LoginThread.java" charset="GBK" />
   </component>
 </project>

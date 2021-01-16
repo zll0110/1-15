@@ -115,7 +115,9 @@ public class LoginThread extends  Thread{
                             sql = "UPDATE users SET ip=?,port=?,status=? WHERE username=?";
                             pstmt=conn.prepareStatement(sql);
                             pstmt.setString(1,addr.getHostAddress());
-                            pstmt.setString(2,username);
+                            pstmt.setInt(2,port);
+                            pstmt.setString(3,"online");
+                            pstmt.setString(4, username);
                             pstmt.executeUpdate();
                             loginf.setVisible(false);
                             ChatThreadWindow chatThreadWindow=new ChatThreadWindow(username,ds);
