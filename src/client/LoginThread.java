@@ -8,10 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.InetAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 
@@ -104,13 +101,24 @@ public class LoginThread extends  Thread{
                              */
                             InetAddress addr = InetAddress.getLocalHost();
                             System.out.println("±¾»úµØÖ·£º"+addr.getHostAddress());
-                            sql="UPDATE users SET ip=?,port=? WHERE username=?";
+                            int port=1688;
+                            DatagramSocket ds=null;
+                            while(true) {
+                                try {
+                                    ds=new DatagramSocket(port);
+                                    break;
+                                } catch (IOException ex) {
+                                    port += 1;
+                                    //ex.printStackTrace();
+                                }
+                            }
+                            sql = "UPDATE users SET ip=?,port=?,status=? WHERE username=?";
                             pstmt=conn.prepareStatement(sql);
                             pstmt.setString(1,addr.getHostAddress());
                             pstmt.setString(2,username);
                             pstmt.executeUpdate();
                             loginf.setVisible(false);
-                            ChatThreadWindow chatThreadWindow=new ChatThreadWindow();
+                            ChatThreadWindow chatThreadWindow=new ChatThreadWindow(username,ds);
                         } else {
                             System.out.println("µÇÂ¼Ê§°Ü");
                         }
