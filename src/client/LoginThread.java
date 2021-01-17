@@ -19,7 +19,7 @@ public class LoginThread extends  Thread{
 
     public void run() {
         /*
-         * 设置登录界面
+         * 登录线程
          */
         loginf = new JFrame();
         loginf.setResizable(false);
@@ -36,7 +36,7 @@ public class LoginThread extends  Thread{
         JPanel loginp = new JPanel(new GridLayout(3, 2));
         loginf.getContentPane().add(loginp);
 
-        JTextField t1 = new JTextField("登录名：");
+        JTextField t1 = new JTextField("登录名");
         t1.setHorizontalAlignment(JTextField.CENTER);
         t1.setEditable(false);
         loginp.add(t1);
@@ -45,7 +45,7 @@ public class LoginThread extends  Thread{
         loginname.setHorizontalAlignment(JTextField.CENTER);
         loginp.add(loginname);
 
-        JTextField t2 = new JTextField("密码：");
+        JTextField t2 = new JTextField("密码");
         t2.setHorizontalAlignment(JTextField.CENTER);
         t2.setEditable(false);
         loginp.add(t2);
@@ -54,7 +54,7 @@ public class LoginThread extends  Thread{
         loginPassword.setHorizontalAlignment(JTextField.CENTER);
         loginp.add(loginPassword);
         /*
-         *  监听退出按钮(匿名内部类)
+         *  ??????????(?????????)
          */
         JButton b1 = new JButton("退  出");
         loginp.add(b1);
@@ -70,7 +70,7 @@ public class LoginThread extends  Thread{
         loginf.setVisible(true);
 
         /**
-         * 监听器,监听"登录"Button的点击和TextField的回车
+         * ??????,????"???"Button??????TextField????
          */
 
         class ButtonListener implements ActionListener {
@@ -94,13 +94,13 @@ public class LoginThread extends  Thread{
                         String encodePassword = rs.getString("PASSWORD");
                         if (MD5.checkpassword(password, encodePassword)) {
                             /*
-                          获取本机IP
-                            开启一个端口8888
-                            隐藏登录界面
-                            显示聊天窗口
+                          ???????IP
+                            ??????????8888
+                            ??????????
+                            ?????????
                              */
                             InetAddress addr = InetAddress.getLocalHost();
-                            System.out.println("本机地址："+addr.getHostAddress());
+                            System.out.println("本机IP地址"+addr.getHostAddress());
                             int port=1688;
                             DatagramSocket ds=null;
                             while(true) {
@@ -135,9 +135,9 @@ public class LoginThread extends  Thread{
                     ex.printStackTrace();
                 }
 				/*
-				1、根据用户去数据库把加密后的密码拿到
+				1????????????????????????????
 				SELECT password FROM users WHERE username='liwei';
-				2、把登录界面输入的密码和数据库里加密后的进行比对（调用MD5类的checkpassword方法）
+				2??????????????????????????????????б???????MD5???checkpassword??????
 				 */
             }
         }

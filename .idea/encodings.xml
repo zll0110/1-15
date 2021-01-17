@@ -5,6 +5,9 @@
     <file url="file://$PROJECT_DIR$/src/chuan/Clientt.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/chuan/SocketDemo.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/client/ChatThreadWindow.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/client/Client.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/client/GetMessageThread.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/client/LoginThread.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/util/MD5.java" charset="GBK" />
   </component>
 </project>

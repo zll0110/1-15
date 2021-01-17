@@ -7,19 +7,19 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5 {
     /**
-     * åˆ©ç”¨MD5è¿›è¡ŒåŠ å¯†
+     * ÀûÓÃMD5½øĞĞ¼ÓÃÜ
      *
-     * @param str å¾…åŠ å¯†çš„å­—ç¬¦ä¸²
-     * @return åŠ å¯†åçš„å­—ç¬¦ä¸²
-     * @throws NoSuchAlgorithmException     æ²¡æœ‰è¿™ç§äº§ç”Ÿæ¶ˆæ¯æ‘˜è¦çš„ç®—æ³•
+     * @param str ´ı¼ÓÃÜµÄ×Ö·û´®
+     * @return ¼ÓÃÜºóµÄ×Ö·û´®
+     * @throws NoSuchAlgorithmException     Ã»ÓĞÕâÖÖ²úÉúÏûÏ¢ÕªÒªµÄËã·¨
      * @throws UnsupportedEncodingException
      */
 
         public static String encoderByMd5 (String str) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-            //ç¡®å®šè®¡ç®—æ–¹æ³•
+            //È·¶¨¼ÆËã·½·¨
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             BASE64Encoder base64en = new BASE64Encoder();
-            //åŠ å¯†åçš„å­—ç¬¦ä¸²
+            //¼ÓÃÜºóµÄ×Ö·û´®
             String newstr = base64en.encode(md5.digest(str.getBytes("utf-8")));
             return newstr;
         }
@@ -28,9 +28,9 @@ public class MD5 {
             System.out.println(encoderByMd5("lw1234"));
         }
 
-    /**åˆ¤æ–­ç”¨æˆ·å¯†ç æ˜¯å¦æ­£ç¡®
-         * @param newpasswd  ç”¨æˆ·è¾“å…¥çš„å¯†ç 
-         * @param oldpasswd  æ•°æ®åº“ä¸­å­˜å‚¨çš„å¯†ç ï¼ï¼ç”¨æˆ·å¯†ç çš„æ‘˜è¦
+    /**ÅĞ¶ÏÓÃ»§ÃÜÂëÊÇ·ñÕıÈ·
+         * @param newpasswd  ÓÃ»§ÊäÈëµÄÃÜÂë
+         * @param oldpasswd  Êı¾İ¿âÖĞ´æ´¢µÄÃÜÂë£­£­ÓÃ»§ÃÜÂëµÄÕªÒª
          * @return
          * @throws NoSuchAlgorithmException
          * @throws UnsupportedEncodingException

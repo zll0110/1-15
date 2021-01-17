@@ -22,12 +22,12 @@ public class GetMessageThread extends Thread{
                 ds.receive(dp);
                 String message=new String(buff,0,dp.getLength());
                 ta.append(message);
-                if(message.contains("è¿›å…¥äº†èŠå¤©å®¤")){
-                    message=message.replace("è¿›å…¥äº†èŠå¤©å®¤","");
-                    System.out.println("å¤„ç†åçš„æ¶ˆæ¯ï¼š" + message);
+                if(message.contains("½øÈëÁËÁÄÌìÊÒ")){
+                    message=message.replace("½øÈëÁËÁÄÌìÊÒ","");
+                    System.out.println("´¦ÀíºóµÄÏûÏ¢£º" + message);
                 }
                 cb.addItem(message);
-                System.out.println("UDPæ”¶çš„æ¶ˆæ¯ï¼š" + message);
+                System.out.println("UDPÊÕµÄÏûÏ¢£º" + message);
             }
 
         } catch (IOException e) {
