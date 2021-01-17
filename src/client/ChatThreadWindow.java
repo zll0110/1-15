@@ -61,7 +61,7 @@ public class ChatThreadWindow {
                         //System.out.println("Ñ¡Ôñ£º"+cb.getSelectedItem());
                         String messageTo = (String) cb.getSelectedItem();
                         if ("All".equals(messageTo)) {
-                            //
+                            sendAll();
                         } else {
                             //
                         }
